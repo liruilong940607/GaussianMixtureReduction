@@ -189,7 +189,7 @@ class GM(nn.Module):
             merge_var.append(_var)
 
         ori_i = setdiff1d(torch.arange(self.n).to(flatten_idx), flatten_idx)
-        self.n = len(ori_i) + 1
+        self.n = len(ori_i) + len(idx_list)
         self.pi = torch.cat(
             [self.pi[ori_i], torch.stack(merge_pi, dim=0)], dim=-1
         ).type_as(self.pi)
